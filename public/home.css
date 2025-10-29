@@ -1,0 +1,654 @@
+@font-face {
+  font-family: 'Wimpy Kid Cured';
+  src: url('font/WimpyKidCured\ 1.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: #FFFFFF;
+  height: 100vh;
+  font-family: "Wimpy Kid Cured", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.top-banner {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+}
+
+.left-side {
+  width: 40%;
+  position: relative;
+  background-image: url('image/background_home1.png');
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E0F0EF;
+}
+
+
+.left-side .character {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 30vh;
+  max-width: 420px;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+}
+
+.left-side .character-shadow {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-60%);
+  width: 30vh;
+  max-width: 300px;
+  height: 40px;
+  background: #0795ED;
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.right-side {
+  width: 60%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #FDEFCC;
+  overflow: hidden;
+}
+
+.right-side::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("image/background_home1.png") no-repeat right bottom;
+  background-size: 20%;
+  transform: scaleX(-1) translateX(15%);
+  transform-origin: right;
+  pointer-events: none;
+}
+
+.right-side,
+.about-me {
+  position: relative;
+  overflow: hidden;
+}
+.right-side::before,
+.about-me::before {
+  transform: none;
+  background-position: right bottom;
+}
+
+.text-content {
+  color: #0795ED;
+}
+
+.name {
+  font-size: 128px;
+  margin: 0;
+}
+
+.subtitle {
+  color: #9ECDFB;
+  font-family: "Wimpy Kid Cured";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: -60px auto 40px;
+}
+
+.quote {
+  color: #0795ED;
+  font-family: "Wimpy Kid Cured";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.gear-navbar {
+  display: flex;
+  gap: 30px;
+  padding: 20px 40px;
+  border: 3px solid #FDEFCC;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 6px rgba(255, 238, 198, 0.6);
+  width: min-content;
+  margin: 80px auto;
+}
+
+/* --- mỗi bánh răng --- */
+.gear-item {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- hình bánh răng --- */
+.gear-bg {
+  position: absolute;
+  inset: 0;
+  background: url("image/Vector.svg") no-repeat center;
+  background-size: contain;
+  transition: transform 1.2s linear;
+}
+
+/* --- text ở giữa --- */
+.gear-item span {
+  position: relative;
+  color: #3293CF;
+  font-family: "Wimpy Kid Cured", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  pointer-events: none;
+  max-width: 80px;
+}
+
+.gear-item:hover .gear-bg {
+  transform: rotate(360deg);
+}
+
+.gear-item:hover span {
+  color: #2272A1;
+}
+
+.line{
+  height: 19px;
+  background-color: #FCFBE5;
+  margin-bottom: 60px;
+}
+
+/* about me */
+
+.about-me{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.gear-avatar {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gear-avatar .gear {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: rotate 10s linear infinite;
+}
+
+.gear-avatar .avatar {
+  position: absolute;
+  width: 298px;
+  height: 298px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.about-text h2{
+  color: #0795ED;
+  font-family: "Wimpy Kid Cured";
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.about-text p{
+  color: #0795ED;
+  text-align: justify;
+  font-family: "Wimpy Kid Cured";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  max-width: 525px;
+}
+
+.skill-interest{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+}
+
+.line1{
+  width: 100%;
+  height: 3px;
+  background-color: #0795ED;
+  margin: 10px;
+}
+
+.skill-interest h2{
+  color: #0795ED;
+  text-align: center;
+  font-family: "Wimpy Kid Cured";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.skill-interest p{
+  color: #0795ED;
+  text-align: center;
+  font-family: "Wimpy Kid Cured";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.research{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px auto 30px;
+}
+
+.research h2{
+  color: #0B1956;
+  text-align: center;
+  font-family: "Wimpy Kid Cured";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.research p{
+  color: #0B1956;
+  font-family: "Wimpy Kid Cured";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.research a{
+  color: #9ECDFB;
+  font-family: "Wimpy Kid Cured";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.container-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #0847CF;
+  margin-top:30px;
+}
+
+#about-me {
+  scroll-margin-top: 100px;
+}
+
+
+.about-me {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-me::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("image/background_home1.png") no-repeat right bottom;
+  background-size: 20%;
+  transform: translateX(10%);
+  transform-origin: right;
+  pointer-events: none;
+}
+
+/* 🎯 Responsive Design */
+
+/* === Laptop vừa: 1200px trở xuống === */
+@media (max-width: 1200px) {
+  .name {
+    font-size: 110px;
+  }
+
+  .subtitle {
+    font-size: 36px;
+    margin: -50px auto 35px;
+  }
+
+  .gear-navbar {
+    gap: 25px;
+    padding: 20px 30px;
+    margin: 70px auto;
+  }
+
+  .gear-item {
+    width: 110px;
+    height: 110px;
+  }
+
+  .gear-item span {
+    font-size: 18px;
+  }
+
+  .about-me {
+    gap: 80px;
+  }
+
+  .gear-avatar {
+    width: 420px;
+    height: 420px;
+  }
+
+  .gear-avatar .avatar {
+    width: 260px;
+    height: 260px;
+  }
+
+  .about-text h2 {
+    font-size: 84px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    max-width: 480px;
+  }
+
+  .skill-interest {
+    gap: 150px;
+  }
+
+  .skill-interest h2 {
+    font-size: 42px;
+  }
+
+  .skill-interest p {
+    font-size: 28px;
+  }
+}
+
+/* === Tablet: 1024px trở xuống === */
+@media (max-width: 1024px) {
+  .top-banner {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-side, .right-side {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .left-side .character {
+    width: 25vh;
+  }
+
+  .name {
+    font-size: 96px;
+  }
+
+  .subtitle {
+    font-size: 32px;
+    margin: -40px auto 30px;
+  }
+
+  .gear-navbar {
+    gap: 20px;
+    padding: 15px 25px;
+    margin: 60px auto;
+  }
+
+  .gear-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gear-item span {
+    font-size: 18px;
+  }
+
+  .about-me {
+    flex-direction: column;
+    gap: 60px;
+    margin: 10px;
+  }
+  .about-me h2{
+    text-align: center;
+  }
+  .about-me p{
+    margin: 10px auto;
+  }
+
+  .gear-avatar {
+    width: 360px;
+    height: 360px;
+  }
+
+  .gear-avatar .avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-text h2 {
+    font-size: 72px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    max-width: 80%;
+  }
+
+  .skill-interest {
+    flex-direction: column;
+    gap: 60px;
+  }
+}
+
+/* === Mobile ngang: 768px trở xuống === */
+@media (max-width: 768px) {
+  .name {
+    font-size: 72px;
+  }
+
+  .subtitle {
+    font-size: 26px;
+  }
+
+  .gear-navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 20px;
+  }
+
+  .gear-item {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gear-item span {
+    font-size: 16px;
+    max-width: 70px;
+  }
+
+  .about-text h2 {
+    font-size: 56px;
+  }
+
+  .about-me::before{
+    background: none;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .gear-avatar {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gear-avatar .avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .skill-interest h2 {
+    font-size: 36px;
+  }
+
+  .skill-interest p {
+    font-size: 24px;
+  }
+
+  .research h2 {
+    font-size: 20px;
+  }
+
+  .research p, .research a {
+    font-size: 16px;
+  }
+}
+
+/* === Mobile nhỏ: 480px trở xuống === */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .left-side {
+    background-size: 90%;
+  }
+
+  .left-side .character {
+    width: 20vh;
+  }
+
+  .right-side::before {
+    background-size: 30%;
+  }
+
+  .name {
+    font-size: 52px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    margin: -30px auto 20px;
+  }
+
+  .quote {
+    font-size: 14px;
+  }
+
+  .gear-navbar {
+    flex-direction: column;
+    gap: 12px;
+    margin: 40px auto;
+    padding: 15px;
+    border-radius: 30px;
+  }
+
+  .gear-item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .gear-item span {
+    font-size: 14px;
+  }
+
+  .about-me {
+    gap: 40px;
+  }
+
+  .gear-avatar {
+    width: 240px;
+    height: 240px;
+  }
+
+  .gear-avatar .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-text h2 {
+    font-size: 40px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .skill-interest h2 {
+    font-size: 28px;
+  }
+
+  .skill-interest p {
+    font-size: 18px;
+  }
+
+  .research h2 {
+    font-size: 18px;
+  }
+
+  .research p,
+  .research a {
+    font-size: 14px;
+  }
+
+  .container-nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+}

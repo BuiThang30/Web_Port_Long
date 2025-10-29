@@ -1,0 +1,541 @@
+@font-face {
+  font-family: 'Wimpy Kid Cured';
+  src: url('font/WimpyKidCured 1.otf') format('opentype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Wimpy Kid Cured', 'Comic Sans MS', cursive;
+  overflow-x: hidden;
+}
+
+/* ---- Khung thoại ---- */
+.speech-bubble {
+  position: relative;
+  background: #FDEFCC;
+  border-radius: 0 0 150px 150px;
+  text-align: center;
+  padding: 50px 0 80px 0;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: 400px;
+  border-left: 100px solid #FDEFCC;
+  border-bottom: 100px solid transparent;
+}
+
+.speech-bubble p {
+  color: #0795ED;
+  font-size: 64px;
+  margin: 0;
+}
+
+/* ---- Bố cục chính ---- */
+.main-layout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  align-items: stretch;
+}
+
+.content {
+  overflow: hidden;
+  max-width: 65%;
+  margin-left: 50px;
+  flex: 0 0 68%;
+}
+
+.content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---- Nhân vật ---- */
+.character {
+  float: left;
+  shape-outside: url("image/nhanvat.png");
+  shape-margin: 200px;
+  width: 450px;
+  margin-right: 60px;
+  margin-top: -30px;
+  max-width: 460px;
+}
+
+/* ---- Vùng chứa kỹ năng ---- */
+.skills {
+  margin: 120px 40px;
+  width: 100%;
+}
+
+/* ---- Nút kỹ năng ---- */
+.skills button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border: 2px solid #0795ED;
+  border-radius: 50px;
+  height: 100px;
+  background: #fff;
+  color: #0795ED;
+  font-family: "Wimpy Kid Cured";
+  font-size: 36px;
+  line-height: 1;
+  text-align: left;
+  margin: 20px 0;
+  padding: 0 40px;
+  box-sizing: border-box;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* .skills button:hover {
+  background: #E5F6FF;
+} */
+
+.skills .button_style_1 {
+  font-size: 25px;
+  line-height: 25px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* ---- Gear + Dot ---- */
+.gear-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.gear {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.5s ease, filter 0.3s ease;
+  object-fit: contain;
+}
+
+.skills button:hover .gear {
+  transform: rotate(180deg);
+}
+
+/* Dot ở giữa gear */
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #0795ED;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* ---- Navbar ---- */
+.container-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #0847CF;
+}
+
+.gear-navbar {
+  display: flex;
+  gap: 30px;
+  padding: 20px 40px;
+  border-radius: 244.025px;
+  border: 3.66px solid #FDEFCC;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 6px rgba(255, 238, 198, 0.6);
+  width: min-content;
+  margin: 80px auto;
+}
+
+/* --- mỗi bánh răng --- */
+.gear-item {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- hình bánh răng --- */
+.gear-bg {
+  position: absolute;
+  inset: 0;
+  background: url("image/Vector.svg") no-repeat center;
+  background-size: contain;
+  transition: transform 1.2s linear;
+}
+
+/* --- text ở giữa --- */
+.gear-item span {
+  position: relative;
+  color: #3293CF;
+  font-family: "Wimpy Kid Cured", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  pointer-events: none;
+  max-width: 80px;
+}
+
+.gear-item:hover .gear-bg {
+  transform: rotate(360deg);
+}
+
+.gear-item:hover span {
+  color: #2272A1;
+}
+
+/* ---- Cột phải ---- */
+.right-panel {
+  flex: 0 0 32%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 40px;
+}
+
+/* ---- Ảnh bên phải ---- */
+.side-image {
+  max-width: 85%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---- Bảng nội dung kỹ năng ---- */
+.autocad-panel {
+  background: #fff;
+  border: 1px solid #0795ED;
+  border-radius: 20px;
+  padding: 30px 40px;
+  color: #0795ED;
+  font-family: "Wimpy Kid Cured";
+  font-size: 28px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 70%;
+  height: 76%;
+  animation: fadeIn 0.4s ease;
+}
+
+.autocad-panel a {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 2px solid #0795ED;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.autocad-panel a:hover {
+  background: #E5F6FF;
+  color: #2272A1;
+}
+
+
+.autocad-panel p:hover {
+  background: #E5F6FF;
+}
+
+/* ---- Hiệu ứng xuất hiện ---- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-btn.active {
+  background: #0795ED;
+  color: #fff;
+}
+
+.skill-btn.active .gear {
+  filter: brightness(0) invert(1);
+}
+.skill-btn.active .dot {
+  background: #0795ED;
+  border-color: #fff;
+}
+
+.skill-btn.active:hover .dot {
+  background: #fff;
+  border-color: #0795ED;
+}
+
+/* 🎯 Responsive Design */
+
+/* === Laptop vừa (≤1200px) === */
+@media (max-width: 1200px) {
+  .speech-bubble p {
+    font-size: 52px;
+  }
+
+  .speech-bubble::after {
+    left: 400px;
+  }
+
+  .character {
+    width: 380px;
+    shape-margin: 150px;
+    margin-right: 40px;
+  }
+
+  .skills button {
+    font-size: 30px;
+    height: 90px;
+    padding: 0 30px;
+  }
+
+  .gear-navbar {
+    gap: 25px;
+    padding: 15px 30px;
+    margin: 60px auto;
+  }
+
+  .gear-item {
+    width: 110px;
+    height: 110px;
+  }
+
+  .gear-item span {
+    font-size: 18px;
+  }
+
+  .autocad-panel {
+    font-size: 24px;
+    padding: 25px 30px;
+  }
+}
+
+/* === Tablet ngang (≤1024px) === */
+@media (max-width: 1024px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .character {
+    float: none;
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 320px;
+    shape-outside: none;
+  }
+
+  .skills {
+    margin: 80px auto;
+    text-align: center;
+  }
+
+  .skills button {
+    justify-content: center;
+    width: 90%;
+  }
+
+  .right-panel {
+    flex: unset;
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .autocad-panel {
+    width: 85%;
+    height: auto;
+    font-size: 22px;
+  }
+
+  .side-image {
+    display: none;
+  }
+
+  .speech-bubble {
+    border-radius: 0 0 100px 100px;
+    padding: 40px 0 70px;
+  }
+
+  .speech-bubble p {
+    font-size: 46px;
+  }
+
+  .speech-bubble::after {
+    left: 500px;
+  }
+
+  .gear-navbar {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 25px;
+  }
+
+  .gear-item {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* === Tablet dọc / mobile ngang (≤768px) === */
+@media (max-width: 768px) {
+  .speech-bubble {
+    border-radius: 0 0 80px 80px;
+    padding: 30px 0 60px;
+  }
+
+  .speech-bubble p {
+    font-size: 38px;
+  }
+
+  .speech-bubble::after {
+    left: 320px;
+  }
+
+  .skills button {
+    font-size: 20px;
+    height: 80px;
+    width: 90%;
+    padding: 0 35px;
+    border-width: 1.5px;
+  }
+
+  .gear-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dot {
+    width: 16px;
+    height: 16px;
+  }
+
+  .gear-navbar {
+    gap: 15px;
+    margin: 50px auto;
+    padding: 10px 20px;
+  }
+
+  .gear-item {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gear-item span {
+    font-size: 16px;
+  }
+
+  .autocad-panel {
+    width: 90%;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .container-nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* === Điện thoại nhỏ (≤480px) === */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .speech-bubble {
+    padding: 20px 10px 50px;
+    border-radius: 0 0 60px 60px;
+  }
+
+  .speech-bubble p {
+    font-size: 28px;
+  }
+
+  .speech-bubble::after {
+    left: 150px;
+  }
+
+  .character {
+    width: 240px;
+    margin: 20px auto;
+  }
+
+  .skills {
+    margin: 40px auto;
+  }
+
+  .skills button {
+    font-size: 15px;
+    height: 70px;
+    padding: 0 40px;
+    width: 90%;
+    border-width: 1.5px;
+  }
+
+  .gear-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .autocad-panel {
+    font-size: 18px;
+    width: 90%;
+    padding: 15px;
+  }
+
+  .autocad-panel a {
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  .gear-navbar {
+    flex-direction: column;
+    gap: 10px;
+    margin: 30px auto;
+    padding: 10px;
+  }
+
+  .gear-item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .gear-item span {
+    font-size: 14px;
+  }
+}
