@@ -61,10 +61,10 @@ body {
 .character {
   float: left;
   shape-outside: url("image/nhanvat.png");
-  shape-margin: 200px;
-  width: 450px;
+  shape-margin: 100px;
+  width: 300px;
   margin-right: 60px;
-  margin-top: -30px;
+  margin-top: 30px;
   max-width: 460px;
 }
 
@@ -302,7 +302,7 @@ body {
   }
 
   .character {
-    width: 380px;
+    width: 280px;
     shape-margin: 150px;
     margin-right: 40px;
   }
@@ -350,7 +350,7 @@ body {
     float: none;
     display: block;
     margin: 0 auto 40px auto;
-    width: 320px;
+    width: 220px;
     shape-outside: none;
   }
 
@@ -485,7 +485,7 @@ body {
   }
 
   .character {
-    width: 240px;
+    width: 180px;
     margin: 20px auto;
   }
 

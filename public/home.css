@@ -37,10 +37,10 @@ body {
 
 .left-side .character {
   position: absolute;
-  bottom: 8%;
+  bottom: 12%;
   left: 50%;
   transform: translateX(-50%) translateY(0);
-  width: 30vh;
+  width: 22vh;
   max-width: 420px;
   pointer-events: none;
   z-index: 5;
@@ -429,7 +429,7 @@ body {
   }
 
   .left-side .character {
-    width: 25vh;
+    width: 20vh;
   }
 
   .name {
@@ -569,7 +569,7 @@ body {
   }
 
   .left-side .character {
-    width: 20vh;
+    width: 18vh;
   }
 
   .right-side::before {
