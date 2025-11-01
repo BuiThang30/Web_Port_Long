@@ -110,7 +110,7 @@ body {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin: -60px auto 40px;
+  margin: -60px auto 10px;
 }
 
 .quote {
@@ -355,14 +355,14 @@ body {
 /* 🎯 Responsive Design */
 
 /* === Laptop vừa: 1200px trở xuống === */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .name {
     font-size: 110px;
   }
 
   .subtitle {
     font-size: 36px;
-    margin: -50px auto 35px;
+    margin: -50px auto 10px;
   }
 
   .gear-navbar {
