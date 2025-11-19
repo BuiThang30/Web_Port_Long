@@ -1,7 +1,10 @@
+// =========== SECTION BUTTON LAYOUT ===========
 window.addEventListener("load", () => {
   const content = document.querySelector(".content");
   const character = document.querySelector(".character");
   const buttons = document.querySelectorAll(".skills button");
+
+  if (!content || !character || buttons.length === 0) return;
 
   const contentWidth = content.clientWidth;
   const charRect = character.getBoundingClientRect();
@@ -27,20 +30,23 @@ window.addEventListener("resize", () => {
   window.dispatchEvent(new Event("load"));
 });
 
+
+// =========== SKILL PANEL ===========
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".skill-btn");
   const rightPanel = document.querySelector(".right-panel");
 
+  if (!buttons.length || !rightPanel) return;
+
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      // Bỏ active cũ
+
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       const type = btn.dataset.type;
       const link = btn.dataset.link;
 
-      // Nếu là AutoCAD → hiển thị bảng nội dung
       if (type === "autocad") {
         rightPanel.innerHTML = `
           <div class="autocad-panel">
@@ -49,13 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="/IE3-Electric-Motor">IE3 Electric Motor</a>
             <a href="/Steel-T-slot-bolt">Steel T-slot bolt</a>
           </div>
-        `;
+       `;
       } 
-      // Nếu là skill khác có link → chuyển trang
       else if (link) {
         window.location.href = link;
       } 
-      // Còn lại → reset ảnh mặc định
       else {
         rightPanel.innerHTML = `
           <img src="image/background_home1.png" class="side-image" />
@@ -66,51 +70,96 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// =========== MUSIC BUTTONS ===========
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".music-btn");
   const contents = document.querySelectorAll(".music-content");
 
+  if (!buttons.length || !contents.length) return;
+
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      // Reset active
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      // Hiển thị nội dung tương ứng
       const type = btn.dataset.type;
+
       contents.forEach(c => {
         c.classList.remove("active");
-        if (c.classList.contains(type)) {
-          c.classList.add("active");
-        }
+        if (c.classList.contains(type)) c.classList.add("active");
       });
     });
   });
 });
 
-document.querySelectorAll("#btn-singapore").forEach(btn => {
-  btn.onclick = () => showSection("singapore-section");
-});
-document.querySelectorAll("#btn-stemese").forEach(btn => {
-  btn.onclick = () => showSection("stemese-section");
-});
-document.querySelectorAll("#btn-soccer").forEach(btn => {
-  btn.onclick = () => showSection("soccer-section");
-});
+
+// =========== SHOW SECTIONS ===========
+function safeOnClick(selector, callback) {
+  document.querySelectorAll(selector).forEach(btn => {
+    btn.onclick = callback;
+  });
+}
+
+safeOnClick("#btn-singapore", () => showSection("singapore-section"));
+safeOnClick("#btn-stemese", () => showSection("stemese-section"));
+safeOnClick("#btn-soccer", () => showSection("soccer-section"));
+safeOnClick("#btn-scratch", () => showSection("scratch-section"));
 
 function showSection(id) {
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+
+  const target = document.getElementById(id);
+  if (target) target.classList.add("active");
 }
 
+
+// =========== BACK BUTTON ===========
 window.addEventListener("load", () => {
   const backBtn = document.getElementById("back");
   if (backBtn) {
     backBtn.addEventListener("click", () => {
       window.location.href = "/built-different";
     });
-  } else {
-    console.error("Không tìm thấy nút #back trong DOM");
   }
+});
+
+
+// =========== INSTRUMENT VIDEO & INFO ===========
+document.addEventListener("DOMContentLoaded", () => {
+
+  const items = document.querySelectorAll(".instrument-box .item");
+  const videoWrapper = document.querySelector(".video-wrapper");
+  const videoFrame = document.getElementById("videoFrame");
+  const infoWrapper = document.querySelector(".info-wrapper");
+
+  if (!items.length) return; // nếu trang không có instrument thì bỏ qua
+
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      items.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      const type = item.dataset.type;
+
+      if (videoWrapper) videoWrapper.style.display = "none";
+      if (infoWrapper) infoWrapper.style.display = "none";
+
+      if (type === "video" && videoWrapper && videoFrame) {
+        videoFrame.src = item.dataset.video;
+        videoWrapper.style.display = "block";
+      }
+
+      if (type === "info" && infoWrapper) {
+        infoWrapper.style.display = "block";
+      }
+    });
+  });
+
+});
+
+// Đổi text speech-bubble khi bấm Instruments from scratch
+document.getElementById("btn-scratch").addEventListener("click", function () {
+  const bubble = document.querySelector(".speech-bubble");
+  bubble.innerHTML = "<p>Instruments from scratch</p>";
 });
 

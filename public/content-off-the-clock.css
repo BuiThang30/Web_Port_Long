@@ -99,7 +99,7 @@ body {
 }
 
 .section{
-  max-width: 80%;
+  width: 80%;
 }
 
 .card-btn {
@@ -437,10 +437,125 @@ body {
   border-radius: 10px;
 }
 
+/* Khung ngoài */
+.instrument-box {
+  border-radius: 30px;
+  border: 3px solid #0795ED;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  font-family: "Wimpy Kid Cured";
+  color: #0795ED;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+/* Hàng chứa nút */
+.row-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  gap: 20px;
+}
+
+/* Nút item */
+.instrument-box a {
+  text-decoration: none;
+  color: #0795ED;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 3px solid #0795ED;
+  border-radius: 60px;
+  padding: 20px 40px;
+  transition: 0.3s ease;
+  width: 40%;
+}
+
+/* ACTIVE giữ underline */
+.instrument-box a.active {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 3px;
+}
+
+.instrument-box a:hover .gear-icon {
+  animation: spin 2s linear infinite;
+}
+
+.instrument-box a.active .gear-icon {
+  animation: spin 2s linear infinite;
+}
+
+/* Animation quay */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* Text nhỏ cho description */
+.text-instrument {
+  color: #0795ED;
+  font-family: "Wimpy Kid Cured";
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* ========================
+   VIDEO & INFO CONTAINER
+   ======================== */
+.video-wrapper,
+.info-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: none;
+}
+
+/* --------- VIDEO FIX 16:9 ---------- */
+.video-wrapper {
+  position: relative;
+  background: #ddd;
+  overflow: hidden;
+}
+
+/* giữ tỷ lệ video */
+.video-wrapper::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------- CUSTOM INFO TAB ---------- */
+.video-16-9 {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* = 9/16 */
+  overflow: hidden;
+}
+
+.video-16-9 iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* ==== RESPONSIVE DESIGN ==== */
 
 /* ---------- Màn hình ≤ 1200px ---------- */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .speech-bubble p {
     font-size: 54px;
   }
@@ -474,6 +589,13 @@ body {
 
   .card-btn-1 .bottom {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .instrument-box {
+    font-size: 40px;
+  }
+  .instrument-box a {
+    padding: 0 40px;
   }
 }
 
@@ -536,6 +658,21 @@ body {
   .card-btn-2 p {
     font-size: 17px;
   }
+
+  .instrument-box {
+    font-size: 32px;
+  }
+  .instrument-box a {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .row-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
 }
 
 /* ---------- Màn hình ≤ 768px ---------- */
@@ -601,6 +738,24 @@ body {
   .content,
   .link {
     font-size: 16px;
+  }
+
+  .row-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .instrument-box {
+    font-size: 30px;
+  }
+
+  /* .instrument-box a {
+    padding: 10px 0;
+  } */
+
+  .text-instrument {
+    font-size: 20px;
   }
 }
 
@@ -678,5 +833,17 @@ body {
   .card-btn-2 .image-container .top,
   .card-btn-2 .image-container .bottom {
     grid-template-columns: 1fr;
+  }
+
+  .instrument-box {
+    font-size: 28px;
+  }
+
+  /* .instrument-box a {
+    padding: 6px 0;
+  } */
+
+  .text-instrument {
+    font-size: 18px;
   }
 }
